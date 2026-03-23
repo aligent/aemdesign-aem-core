@@ -7,9 +7,9 @@
     <!-- P A R E N T    P R O J E C T    D E S C R I P T I O N                  -->
     <!-- ====================================================================== -->
     <parent>
-        <groupId>design.aem</groupId>
+        <groupId>au.com.aligent</groupId>
         <artifactId>aemdesign-aem-core</artifactId>
-        <version>2.1.306</version>
+        <version>.</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -18,7 +18,7 @@
     <!-- ====================================================================== -->
 
     <artifactId>aemdesign-aem-services</artifactId>
-    <version>2.1.306</version>
+    <version>.</version>
     <packaging>jar</packaging>
     <name>AEM Design - Core - AEM Services</name>
     <description>Project for all AEM and OSGI Services</description>
@@ -46,27 +46,19 @@
     </developers>
 
     <scm>
-        <connection>scm:git:https://github.com/aem-design/aemdesign-aem-core.git</connection>
-        <url>https://github.com/aem-design/aemdesign-aem-core</url>
+        <connection>scm:git:https://github.com/MMAL/aemdesign-aem-core.git</connection>
+        <url>https://github.com/MMAL/aemdesign-aem-core</url>
     </scm>
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/aem-design/aemdesign-aem-core/issues</url>
+        <url>https://github.com/MMAL/aemdesign-aem-core/issues</url>
     </issueManagement>
 
     <distributionManagement>
-        <site>
-            <id>api.wiki</id>
-            <url>https://github.com/aem-design/aemdesign-aem-core/wiki</url>
-        </site>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/MMAL/aemdesign-aem-core</url>
         </repository>
     </distributionManagement>
 
@@ -206,6 +198,7 @@
                         <configuration>
                             <bnd><![CDATA[
 Bundle-SymbolicName: design.aem.aemdesign-aem-services
+Bundle-Version: 2.0.666
 Bundle-Category: design.aem
 Bundle-Description: ${project.description}
 Bundle-DocURL: https://aem.design
