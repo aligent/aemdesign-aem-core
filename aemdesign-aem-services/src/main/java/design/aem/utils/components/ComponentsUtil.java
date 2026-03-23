@@ -18,7 +18,6 @@ import com.day.cq.wcm.api.policies.ContentPolicyManager;
 import com.day.cq.wcm.webservicesupport.Configuration;
 import com.day.cq.wcm.webservicesupport.ConfigurationConstants;
 import com.day.cq.wcm.webservicesupport.ConfigurationManager;
-import com.google.common.base.Throwables;
 import design.aem.components.AttrBuilder;
 import design.aem.components.ComponentField;
 import design.aem.components.ComponentProperties;
@@ -1744,7 +1743,7 @@ public class ComponentsUtil {
 
 
             } catch (Exception ex) {
-                LOGGER.error(Throwables.getStackTraceAsString(ex));
+                LOGGER.error("Error processing <whatever context>", ex);
             }
         } else {
             LOGGER.error("getCloudConfigProperty: could not get ContentAccess service.");
@@ -1936,7 +1935,7 @@ public class ComponentsUtil {
                     }
 
                 } catch (Exception ex) {
-                    LOGGER.error(Throwables.getStackTraceAsString(ex));
+                    LOGGER.error("Error processing <whatever context>", ex);
                 }
 
             } else {
@@ -2005,7 +2004,7 @@ public class ComponentsUtil {
                     }
 
                 } catch (Exception ex) {
-                    LOGGER.error(Throwables.getStackTraceAsString(ex));
+                    LOGGER.error("Error processing <whatever context>", ex);
                 }
 
             } else {

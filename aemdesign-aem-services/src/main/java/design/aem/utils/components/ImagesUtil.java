@@ -12,8 +12,6 @@ import com.day.cq.dam.commons.util.DamUtil;
 import com.day.cq.tagging.Tag;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.foundation.Image;
-import com.google.common.base.Throwables;
-import com.google.common.collect.Lists;
 import design.aem.components.ComponentProperties;
 import design.aem.services.ContentAccess;
 import design.aem.utils.WidthBasedRenditionComparator;
@@ -628,7 +626,8 @@ public class ImagesUtil {
      * @return matching rendition
      */
     public static com.adobe.granite.asset.api.Rendition getBestFitRendition(int width, com.adobe.granite.asset.api.Asset asset) {
-        List<com.adobe.granite.asset.api.Rendition> renditions = Lists.newArrayList(asset.listRenditions());
+        List<com.adobe.granite.asset.api.Rendition> renditions = new ArrayList<>();
+        asset.listRenditions().forEachRemaining(renditions::add);
         return getBestFitRendition(width, renditions, null);
     }
 
@@ -640,7 +639,8 @@ public class ImagesUtil {
      * @return matching rendition
      */
     public static com.adobe.granite.asset.api.Rendition getBestFitRendition(int width, com.adobe.granite.asset.api.Asset asset, String renditionPrefix) {
-        List<com.adobe.granite.asset.api.Rendition> renditions = Lists.newArrayList(asset.listRenditions());
+        List<com.adobe.granite.asset.api.Rendition> renditions = new ArrayList<>();
+        asset.listRenditions().forEachRemaining(renditions::add);
         return getBestFitRendition(width, renditions, renditionPrefix);
 
     }
@@ -903,7 +903,7 @@ public class ImagesUtil {
                     return imageProperties;
                 }
             } catch (Exception ex) {
-                LOGGER.error(Throwables.getStackTraceAsString(ex));
+                LOGGER.error("Error processing <whatever context>", ex);
             }
         } else {
             LOGGER.error("getBackgroundVideoRenditions: could not get ContentAccess service.");
@@ -1075,7 +1075,7 @@ public class ImagesUtil {
                 }
 
             } catch (Exception ex) {
-                LOGGER.error(Throwables.getStackTraceAsString(ex));
+                LOGGER.error("Error processing <whatever context>", ex);
             }
         } else {
             LOGGER.error("getResourceImageRenditions: could not get ContentAccess service.");
