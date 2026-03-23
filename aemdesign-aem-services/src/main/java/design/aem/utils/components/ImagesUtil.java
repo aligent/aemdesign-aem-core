@@ -1075,7 +1075,7 @@ public class ImagesUtil {
                 }
 
             } catch (Exception ex) {
-                LOGGER.error("Error processing adminResourceResolver: ", ex);
+                LOGGER.error("getBackgroundVideoRenditions: error retrieving renditions", ex);
             }
         } else {
             LOGGER.error("getResourceImageRenditions: could not get ContentAccess service.");
