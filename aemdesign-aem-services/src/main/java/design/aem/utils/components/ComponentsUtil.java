@@ -1743,7 +1743,7 @@ public class ComponentsUtil {
 
 
             } catch (Exception ex) {
-                LOGGER.error("Error processing <whatever context>", ex);
+                LOGGER.error("Error processing adminResourceResolver: ", ex);
             }
         } else {
             LOGGER.error("getCloudConfigProperty: could not get ContentAccess service.");
@@ -1935,7 +1935,7 @@ public class ComponentsUtil {
                     }
 
                 } catch (Exception ex) {
-                    LOGGER.error("Error processing <whatever context>", ex);
+                    LOGGER.error("Error processing adminResourceResolver: ", ex);
                 }
 
             } else {
@@ -2004,7 +2004,7 @@ public class ComponentsUtil {
                     }
 
                 } catch (Exception ex) {
-                    LOGGER.error("Error processing <whatever context>", ex);
+                    LOGGER.error("Error processing adminResourceResolver: ", ex);
                 }
 
             } else {

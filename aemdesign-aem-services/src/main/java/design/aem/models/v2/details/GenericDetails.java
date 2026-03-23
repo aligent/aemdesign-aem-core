@@ -360,7 +360,7 @@ public class GenericDetails extends BaseComponent {
                             componentProperties.putAll(badgeConfig);
 
                         } catch (Exception ex) {
-                            LOGGER.error("Error processing <whatever context>", ex);
+                            LOGGER.error("Error processing adminResourceResolver: ", ex);
                         }
                     }
                 }

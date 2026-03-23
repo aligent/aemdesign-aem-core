@@ -903,7 +903,7 @@ public class ImagesUtil {
                     return imageProperties;
                 }
             } catch (Exception ex) {
-                LOGGER.error("Error processing <whatever context>", ex);
+                LOGGER.error("Error processing adminResourceResolver: ", ex);
             }
         } else {
             LOGGER.error("getBackgroundVideoRenditions: could not get ContentAccess service.");
@@ -1075,7 +1075,7 @@ public class ImagesUtil {
                 }
 
             } catch (Exception ex) {
-                LOGGER.error("Error processing <whatever context>", ex);
+                LOGGER.error("Error processing adminResourceResolver: ", ex);
             }
         } else {
             LOGGER.error("getResourceImageRenditions: could not get ContentAccess service.");
