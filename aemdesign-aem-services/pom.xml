@@ -198,7 +198,7 @@
                         <configuration>
                             <bnd><![CDATA[
 Bundle-SymbolicName: design.aem.aemdesign-aem-services
-Bundle-Version: 2.0.666
+Bundle-Version: ${revision}
 Bundle-Category: design.aem
 Bundle-Description: ${project.description}
 Bundle-DocURL: https://aem.design
