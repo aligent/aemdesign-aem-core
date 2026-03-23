@@ -31,8 +31,15 @@ jobs:
           server-username: GITHUB_ACTOR
           server-password: GITHUB_TOKEN
 
+      - name: get version
+        id: version
+        run: |
+          TAG=$(git describe --tags --abbrev=0)
+          COUNT=$(git rev-list ${TAG}..HEAD --count)
+          echo "revision=${TAG}.${COUNT}" >> $GITHUB_OUTPUT
+
       - name: build and test
-        run: mvn package -B
+        run: mvn package -B -Drevision=${{ steps.version.outputs.revision }}
 
       - name: deploy to github packages
         if: github.ref == 'refs/heads/master'
@@ -41,4 +48,5 @@ jobs:
           GITHUB_ACTOR: ${{ github.actor }}
         run: |
           mvn deploy -B -DskipTests \
+            -Drevision=${{ steps.version.outputs.revision }} \
             -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/${{ github.repository }}

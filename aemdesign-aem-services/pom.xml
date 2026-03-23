@@ -9,7 +9,7 @@
     <parent>
         <groupId>au.com.aligent</groupId>
         <artifactId>aemdesign-aem-core</artifactId>
-        <version>.</version>
+        <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -18,7 +18,7 @@
     <!-- ====================================================================== -->
 
     <artifactId>aemdesign-aem-services</artifactId>
-    <version>.</version>
+    <version>${revision}</version>
     <packaging>jar</packaging>
     <name>AEM Design - Core - AEM Services</name>
     <description>Project for all AEM and OSGI Services</description>
