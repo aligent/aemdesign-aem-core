@@ -26,8 +26,10 @@ jobs:
           java-version: '8'
           distribution: temurin
           cache: maven
-          # configures a 'github' server entry in settings.xml for deploy
-          registry-url: https://maven.pkg.github.com
+          # writes a 'github' server entry into ~/.m2/settings.xml for deploy
+          server-id: github
+          server-username: GITHUB_ACTOR
+          server-password: GITHUB_TOKEN
 
       - name: build and test
         run: mvn package -B
@@ -36,6 +38,7 @@ jobs:
         if: github.ref == 'refs/heads/master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.actor }}
         run: |
           mvn deploy -B -DskipTests \
             -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/${{ github.repository }}
