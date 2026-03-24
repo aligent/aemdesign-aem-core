@@ -74,7 +74,6 @@ public class TagUtil {
                 }
             } catch (Exception ex) {
                 LOGGER.error("getTagValueAsAdmin: {}", ex);
-                //out.write( Throwables.getStackTraceAsString(ex) );
             }
         } else {
             LOGGER.error("getTagValueAsAdmin: could not get ContentAccess service.");

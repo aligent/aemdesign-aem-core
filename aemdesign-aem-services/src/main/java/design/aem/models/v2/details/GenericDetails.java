@@ -3,7 +3,6 @@ package design.aem.models.v2.details;
 import com.day.cq.tagging.TagConstants;
 import com.day.cq.tagging.TagManager;
 import com.day.cq.wcm.api.Page;
-import com.google.common.base.Throwables;
 import design.aem.components.ComponentProperties;
 import design.aem.models.BaseComponent;
 import design.aem.models.v2.content.ContentTemplate;
@@ -361,7 +360,7 @@ public class GenericDetails extends BaseComponent {
                             componentProperties.putAll(badgeConfig);
 
                         } catch (Exception ex) {
-                            LOGGER.error(Throwables.getStackTraceAsString(ex));
+                            LOGGER.error("Error processing adminResourceResolver: ", ex);
                         }
                     }
                 }
