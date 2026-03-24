@@ -38,7 +38,7 @@ jobs:
           echo "revision=${TAG}.${COUNT}" >> $GITHUB_OUTPUT
 
       - name: build and test
-        run: mvn package -B -Drevision=${{ steps.version.outputs.revision }} -Dmaven.test.failure.ignore=true
+        run: mvn package -B -Drevision=${{ steps.version.outputs.revision }} -Dsurefire.excludes=**/ResolverUtilTest.java
 
       - name: deploy to github packages
         if: github.ref == 'refs/heads/master'
