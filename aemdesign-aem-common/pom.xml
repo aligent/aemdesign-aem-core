@@ -339,10 +339,14 @@
                             <groupId>org.apache.sling</groupId>
                             <artifactId>org.apache.sling.installer.hc</artifactId>
                         </embedded>
-                        <embedded>
-                            <groupId>com.adobe.acs</groupId>
-                            <artifactId>acs-aem-commons-bundle</artifactId>
-                        </embedded>
+                        <!--
+                          ACS AEM Commons is intentionally NOT embedded here. It is declared
+                          as a provided dependency for compilation only. Embedding it caused
+                          this package to install its own acs-aem-commons-bundle-5.0.4.jar to
+                          /apps/aemdesign/install, which (a) is not AEM 6.5 LTS compatible and
+                          (b) collides with the ACS Commons version the consuming project
+                          installs. The consuming project provides ACS Commons at runtime.
+                        -->
                     </embeddeds>
                 </configuration>
             </plugin>
