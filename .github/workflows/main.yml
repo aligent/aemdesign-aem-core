@@ -33,7 +33,7 @@ jobs:
       - name: get version
         id: version
         run: |
-          TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "1.0.0")
+          TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "3.0.0")
           COUNT=$(git rev-list "${TAG}..HEAD" --count 2>/dev/null || git rev-list --count HEAD)
           echo "revision=${TAG}.${COUNT}" >> $GITHUB_OUTPUT
 
