@@ -1712,7 +1712,10 @@ public class ComponentsUtil {
      * @return return cloud config property
      */
     public static String getCloudConfigProperty(InheritanceValueMap pageProperties, String configurationName, String propertyName, SlingScriptHelper sling) {
-        return getCloudConfigProperty(pageProperties,configurationName,propertyName, sling);
+        // Cast to ValueMap so overload resolution targets the implementation below.
+        // Without the cast this call binds back to this same InheritanceValueMap
+        // overload (the more specific match) and recurses until it stack overflows.
+        return getCloudConfigProperty((ValueMap) pageProperties, configurationName, propertyName, sling);
     }
 
     /***
