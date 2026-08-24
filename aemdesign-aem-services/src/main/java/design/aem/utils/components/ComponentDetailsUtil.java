@@ -398,6 +398,16 @@ public class ComponentDetailsUtil {
 
                 }
 
+                // Base-template pages have no Details component, so the title fields above are
+                // never populated and lists such as contenttabs render blank labels. Fall back to
+                // the page's own title/navTitle when a Details override did not supply one.
+                componentProperties.put(FIELD_TITLE,
+                        defaultIfEmpty(componentProperties.get(FIELD_TITLE, ""), getPageTitle(page)));
+                componentProperties.put(FIELD_PAGE_TITLE,
+                        defaultIfEmpty(componentProperties.get(FIELD_PAGE_TITLE, ""), getPageTitle(page)));
+                componentProperties.put(FIELD_PAGE_TITLE_NAV,
+                        defaultIfEmpty(componentProperties.get(FIELD_PAGE_TITLE_NAV, ""), getPageNavTitle(page)));
+
                 componentProperties.put(FIELD_DESCRIPTION, page.getDescription());
                 componentProperties.put("hideInNav", page.isHideInNav());
                 componentProperties.put("name", page.getName());
